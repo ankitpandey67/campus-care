@@ -1,0 +1,38 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Start project UI",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"client/node_modules/vite/bin/vite.js",
+				"client",
+				"--host",
+				"127.0.0.1"
+			],
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Start project API",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"server/src/server.js"
+			],
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Run entire project",
+			"dependsOn": [
+				"Start project UI",
+				"Start project API"
+			],
+			"dependsOrder": "parallel"
+		}
+	]
+}
